@@ -1,0 +1,93 @@
+<div ng-controller="addRecipeController">
+	<form>
+		<h2>Write a new recipe</h2>
+		<div class="input-field"> 
+			<div class="form-group">
+				<label class="control-label" for="">Name</label>
+				<span class="help-block"></span>
+				<input type="text" class="form-control" id="" ng-model="recipe.Name">
+			</div>
+		</div>
+		<div class="input-field col s12">
+			<textarea id="description" class="materialize-textarea" ng-model="recipe.Description"></textarea>
+			<label for="description">Description</label>
+		</div>
+		<div id="Ingredients">
+			<u><h5>Ingredienst</h5></u>
+			<div ng-repeat="ingredient in recipe.Ingredients">
+				<div class="row">
+					<div ng-if="!$last">
+						<div class="input-field col s6">
+							<input id="ingredient_name" type="text" class="validate" ng-model="ingredient.name">
+							<label for="ingredient_name" class="active" >Ingredient name</label>
+						</div>
+						<div class="input-field col s6">
+							<input id="ingredient_quantity" type="text" class="validate" ng-model='ingredient.quantity'>
+							<label class="active" for="ingredient_quantity" >Ingredient Quantity</label>
+						</div>
+					</div>
+					<div ng-if="$last">
+							<div class="input-field col s6">
+								<input id="ingredient_name" type="text" class="validate active" ng-model="ingredient.name">
+								<label for="ingredient_name">Ingredient name</label>
+								<span ng-show="ingredient.name.$error.required">Please fill the filed; else remove using the remove button</span>
+							</div>
+							<div class="input-field col s4">
+								<input id="ingredient_quantity" type="text" class="validate active" ng-model='ingredient.quantity'>
+								<label for="ingredient_quantity">Ingredient Quantity</label>
+							</div>
+							<div class="col s1 m1 l1">
+								<button type="button" class="btn-floating btn-large waves-effect waves-light red" ng-show="$last" ng-click="addIngredientField()"><i class="material-icons">add</i></button>
+							</div>
+							<div class="col s1 m1 l1" ng-if="ingredients.length>1">
+								<button type="button" class="btn-floating btn-large waves-effect waves-light red" ng-show="$last" ng-click="removeIngredientField()"><i class="material-icons">remove</i></button>
+							</div>
+							<div ng-if="ingredients.length==1">
+								<button type="button" class="btn-floating btn-large disabled" ng-show="$last"><i class="material-icons">remove</i></button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<span ng-if="ingredientError" style="color:red">{{ingredientError}}</span>
+		</div>
+		<div id="Steps">
+			<u><h5>Steps</h5></u>
+			<div ng-repeat="step in recipe.Steps">
+				<div ng-if="!$last">
+					<div ng-repeat="(key, value) in step">
+					<div class="input-field col s12">
+						<textarea id="step" class="materialize-textarea" ng-model="step[key]"></textarea>
+						<label for="step">{{key}}</label>
+					</div>
+				</div>
+				</div>
+				<div ng-if="$last">
+					<div class="row">
+						<div ng-repeat="(key, value) in step">
+							<div class="col s10 m10 l10">
+								<div class="input-field col s12">
+									<textarea id="" class="materialize-textarea" ng-model="step[key]"></textarea>
+									<label for="">{{key}}</label>
+								</div>
+							</div>
+							<div class="col s1 m1 l1">
+								<button type="button" class="btn-floating btn-large waves-effect waves-light red" ng-click="addSteps()"><i class="material-icons">add</i></button>
+							</div>
+							<div class="col s m1 l1">
+								<div ng-if="steps.length>1">
+									<button type="button" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons" ng-click="removeSteps()">remove</i></button>
+								</div>
+								<div ng-if="steps.length==1">
+									<button type="button" class="btn-floating btn-large disabled"><i class="material-icons">remove</i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<span ng-if="stepError">{{stepError}}</span>
+		</div>
+		<button  class="btn" ng-click="addRecipe()">Add Recipe</button>
+		</div>
+	</form>
+</div>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="recipes">
+<head>
+	<title>Kitchen Recipes</title>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#/" class="brand-logo">Kitchen Recipes</a>
+		</div>
+	</nav>
+	<div class="container">
+		<div id='main'>
+			<div ng-view></div>		
+			
+		</div>
+		
+	</div>
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+	<!--Lodash-->
+	<script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyDk3lz7tFA1Q7IyBy6Mrulq6uHZ90bTkC4",
+	    authDomain: "kichen-recipes.firebaseapp.com",
+	    databaseURL: "https://kichen-recipes.firebaseio.com",
+	    storageBucket: "kichen-recipes.appspot.com",
+	    messagingSenderId: "528642245057"
+	  };
+	  firebase.initializeApp(config);
+	</script>
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/2.2.0/angularfire.min.js"></script>
+	<script type="text/javascript" src="JS/app.js"></script>
+</body>
+
+</html>

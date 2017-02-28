@@ -1,0 +1,34 @@
+<div ng-controller="recipe_control">
+	<div class="row" ng-repeat="recipe in recipes">
+		<div class="col s12">
+			<div class="card large">
+				<div class="card-image">
+					<img class="activator" src="images/sample-1.jpg">
+					<span class="card-title activator">{{recipe.Name}}</span>
+				</div>
+				<div class="card-content">
+					<p>{{recipe.Description}}</p>
+				</div>
+				<div class="card-reveal">
+					<span class="card-title">{{recipe.Name}} <i class="material-icons right">close</i></span>
+					<h4>Ingredients:</h4>
+					<ul  ng-repeat="ingredient in recipe.Ingredients">
+						<li>{{ingredient.name}}:  {{ingredient.quantity}}</li>
+					</ul>
+					<h4>Steps:</h4>
+					<ul  ng-repeat="step in recipe.Steps">
+						<div ng-repeat="(key, value) in step">
+							<u>{{key}}:</u>
+							<li style="margin-left:2em">{{value}}</li>
+						</div>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="fixed-action-btn">
+    <a href="#add" class="btn-floating btn-large">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
+</div>
